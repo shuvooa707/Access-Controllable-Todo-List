@@ -1,0 +1,88 @@
+
+.todo-container {
+    position: relative;
+}
+.todo-container .overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 101;
+    background-color: rgba(255, 255, 255, 0.363);
+}
+
+.modal-dialog {
+    position: relative;
+}
+
+.modal-dialog .overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 101;
+    background-color: rgba(255, 255, 255, 0.623);
+}
+
+.status-checkbox {
+    margin-top: 5px;
+    transform: scale(2);
+    cursor: pointer;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+thead tr .task-number,
+thead tr .task-status {
+    max-width: 70px;
+    min-width: 70px;
+}
+
+/* making tbody fixed height */
+tbody {
+    display: block;
+    height: 650px;
+    overflow: auto;
+}
+thead, tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;/* even columns width , fix width of table too*/
+}
+/* /making tbody fixed height */
+
+/* scrollbar style */
+*::-webkit-scrollbar {
+    width: 12px;
+    cursor: pointer;
+}
+::-webkit-scrollbar-thumb {
+  background: orange;
+  cursor: pointer;
+  border-radius: 10px;
+}
+/* /scrollbar style */
+
+.task-name {
+    width: 200px;
+    padding: 10px 0px!important;
+}
+
+
+label {
+    font-weight: bold;
+}
+
+.done {
+    text-decoration: line-through;
+    color: transparent;
+    text-shadow: 0 0 2px #000;
+}
+
+.hide {
+    display: none!important;
+}
