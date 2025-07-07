@@ -1,4 +1,4 @@
-name: Run tests
+name: Run Laravel Tests
 
 on:
   push:
@@ -14,11 +14,27 @@ jobs:
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '7.4'
+          php-version: '8.2'  # recommended version for modern Laravel
+          extensions: mbstring, bcmath, pdo, pdo_mysql
           coverage: none
 
       - name: Install dependencies
-        run: composer install --prefer-dist --no-progress --no-suggest --optimize-autoloader
+        run: composer install --prefer-dist --no-progress --no-suggest
+
+      - name: Copy .env
+        run: cp .env.example .env
+
+      - name: Generate app key
+        run: php artisan key:generate
+
+      - name: Run migrations
+        run: php artisan migrate --env=testing --force
+        env:
+          DB_CONNECTION: sqlite
+          DB_DATABASE: ":memory:"
 
       - name: Run PHPUnit
-        run: vendor/bin/phpunit --testdox
+        run: php artisan test --testdox
+        env:
+          DB_CONNECTION: sqlite
+          DB_DATABASE: ":memory:"
