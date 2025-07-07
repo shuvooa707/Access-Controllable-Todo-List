@@ -14,7 +14,7 @@ jobs:
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.2'  # recommended version for modern Laravel
+          php-version: '7.4'  # recommended version for modern Laravel
           extensions: mbstring, bcmath, pdo, pdo_mysql
           coverage: none
 
